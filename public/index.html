@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Bad Credit Cards & How to Rebuild Credit | CreditPlum</title>
+  <meta name="description" content="Compare secured cards, credit-builder loans, and rebuild-friendly products by your credit score. Plain-English guides on how to rebuild credit — no judgment." />
+  <link rel="canonical" href="https://creditplum.com/" />
+  <meta property="og:title" content="Find Bad-Credit Cards & Rebuild Your Score | CreditPlum" />
+  <meta property="og:description" content="See which cards and loans you can realistically get with your score, and learn how to rebuild credit step by step." />
+  <meta property="og:type" content="website" />
+
+  <!-- Structured data helps search engines show rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CreditPlum",
+    "url": "https://creditplum.com/",
+    "description": "Credit education and product comparison for people rebuilding credit."
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="/" class="brand">Credit<span>Plum</span></a>
+      <nav class="nav">
+        <a href="#compare">Compare</a>
+        <a href="#learn">Learn</a>
+        <a href="#" id="favLink">Favorites</a>
+        <button class="btn small" id="authBtn">Sign in</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow">No judgment. Just a clear path.</span>
+        <h1>See what you can actually get<br />with the score you have today.</h1>
+        <p class="lede">Set your credit score below. We'll show cards and loans built for where you are — and how likely you are to be approved.</p>
+
+        <!-- SCORE PICKER -->
+        <div class="score-panel" id="compare">
+          <label for="scoreRange">Your approximate credit score</label>
+          <div class="score-row">
+            <input type="range" id="scoreRange" min="300" max="850" value="560" step="5" />
+            <div>
+              <div class="score-readout" id="scoreReadout">560</div>
+              <div class="band-label" id="bandLabel">Poor</div>
+            </div>
+          </div>
+          <div class="filters">
+            <select id="categoryFilter">
+              <option value="">All product types</option>
+              <option value="secured-card">Secured cards</option>
+              <option value="unsecured-card">Unsecured cards</option>
+              <option value="credit-builder-loan">Credit-builder loans</option>
+              <option value="personal-loan">Personal loans</option>
+            </select>
+            <select id="sortFilter">
+              <option value="odds">Best approval odds</option>
+              <option value="fee">Lowest annual fee</option>
+              <option value="name">Name (A–Z)</option>
+            </select>
+          </div>
+        </div>
+        <p class="ripe-hint" style="margin-top:14px">
+          <span class="dot" style="background:var(--ripe)"></span> Likely
+          <span class="dot" style="background:var(--ripening);margin-left:10px"></span> Maybe
+          <span class="dot" style="background:var(--unripe);margin-left:10px"></span> Long shot
+          &nbsp;— our estimate, not a guarantee.
+        </p>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="wrap">
+      <div class="results-head">
+        <h2>Matches for your score</h2>
+        <span class="count" id="resultCount"></span>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="block" id="learn">
+      <div class="wrap">
+        <h2>Learn how credit really works</h2>
+        <p style="color:var(--ink-soft);max-width:52ch">Short, plain-English guides. No jargon, no shame — just what helps.</p>
+        <div class="edu-grid" id="eduGrid"></div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <p class="disclaimer">
+        CreditPlum is an independent education and comparison site. We may earn a commission when you're
+        approved through our links, at no cost to you — it never changes your rate or our rankings.
+        Approval estimates are editorial guidance, not a promise of approval. We're not a lender,
+        credit-repair company, or financial advisor.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <strong>CreditPlum</strong> — credit education for real people.<br />
+      <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Affiliate disclosure</a> · <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <!-- CHATBOT -->
+  <button class="chat-fab" id="chatFab" aria-label="Open the credit assistant">💬</button>
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Plum credit assistant">
+    <div class="chat-head">
+      <div>Plum<small>Your credit assistant</small></div>
+      <button id="chatClose" aria-label="Close chat">×</button>
+    </div>
+    <div class="chat-log" id="chatLog"></div>
+    <div class="chat-suggests" id="chatSuggests">
+      <button>How do I fix my 520 score?</button>
+      <button>How long does it take to rebuild credit?</button>
+      <button>Which product should I start with?</button>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Ask about credit…" autocomplete="off" />
+      <button id="chatSend" aria-label="Send">↑</button>
+    </div>
+    <div class="chat-disclaimer">Plum gives general education, not personal financial advice.</div>
+  </div>
+
+  <!-- AUTH MODAL -->
+  <div class="modal-backdrop" id="authModal">
+    <div class="modal">
+      <h3 id="authTitle">Welcome back</h3>
+      <div class="err" id="authErr"></div>
+      <input type="email" id="authEmail" placeholder="Email" autocomplete="email" />
+      <input type="password" id="authPassword" placeholder="Password" autocomplete="current-password" />
+      <button class="btn" id="authSubmit">Sign in</button>
+      <div class="switch">
+        <span id="authSwitchText">New here?</span>
+        <a href="#" id="authSwitch">Create an account</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>
