@@ -117,18 +117,7 @@ Credit<span>Plum</span>
 <p>&copy; 2024 CreditPlum. Educational content only. Not financial advice.</p>
 </footer>
 
-<script>
-async function loadArticles() {
-try {
-const response = await fetch('/api/articles');
-const data = await response.json();
-const list = document.getElementById('articlesList');
-const noArticles = document.getElementById('noArticles');
-
-if (!data.articles || data.articles.length === 0) {
-noArticles.style.display = 'block';
-return;
-}
+<script src="/js/learn.js"></script>
 
 list.innerHTML = data.articles
 .map(
