@@ -98,12 +98,10 @@ Credit<span>Plum</span>
 </nav>
 </div>
 </header>
-
 <div class="learn-hero">
 <h1>Learn About Credit</h1>
 <p>Free guides and resources to help you understand and build your credit score.</p>
 </div>
-
 <div class="articles-section">
 <div class="wrap">
 <div id="articlesList" class="articles-grid"></div>
@@ -112,34 +110,9 @@ Credit<span>Plum</span>
 </div>
 </div>
 </div>
-
 <footer class="site-footer">
 <p>&copy; 2024 CreditPlum. Educational content only. Not financial advice.</p>
 </footer>
-
 <script src="/js/learn.js"></script>
-
-list.innerHTML = data.articles
-.map(
-(article) => `
-<div class="article-card" onclick="window.location.href='/article.html?slug=${article.slug}'">
-<div class="category">${article.category}</div>
-<h3>${article.title}</h3>
-<p>${article.excerpt}</p>
-<div class="article-footer">
-<span class="reading-time">${article.readingMinutes} min read</span>
-</div>
-</div>
-`
-)
-.join('');
-} catch (err) {
-console.error('Error loading articles:', err);
-document.getElementById('noArticles').style.display = 'block';
-}
-}
-
-loadArticles();
-</script>
 </body>
 </html>
