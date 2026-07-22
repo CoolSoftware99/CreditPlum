@@ -3,85 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learn About Credit | CreditPlum</title>
-<meta name="description" content="Free guides and articles on building and rebuilding credit.">
+<title>CreditPlum - Build Your Credit Score</title>
+<meta name="description" content="Free credit score tools and guides to help you understand and improve your credit.">
 <link rel="stylesheet" href="/css/styles.css">
 <style>
-.learn-hero {
+.hero {
 background: linear-gradient(135deg, #7a2e63 0%, #2e9e6b 100%);
 color: #faf8f6;
-padding: 60px 20px;
+padding: 80px 20px;
 text-align: center;
 }
-.learn-hero h1 {
-font-size: 2.5rem;
-margin-bottom: 15px;
+.hero h1 {
+font-size: 3rem;
+margin-bottom: 20px;
 font-weight: 700;
 }
-.learn-hero p {
-font-size: 1.1rem;
+.hero p {
+font-size: 1.3rem;
 max-width: 600px;
-margin: 0 auto;
+margin: 0 auto 30px;
 }
-.articles-section {
+.cta-button {
+display: inline-block;
+background: #d6952b;
+color: white;
+padding: 14px 36px;
+border-radius: 6px;
+text-decoration: none;
+font-weight: 600;
+transition: background 0.3s ease;
+}
+.cta-button:hover {
+background: #c17f1a;
+}
+.block {
 padding: 60px 20px;
-background: #faf8f6;
 }
-.articles-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-gap: 30px;
-max-width: 1200px;
-margin: 0 auto;
-}
-.article-card {
-background: white;
-border-radius: 8px;
-padding: 30px;
-border-left: 4px solid #7a2e63;
-cursor: pointer;
-transition: box-shadow 0.3s ease, transform 0.3s ease;
-box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.article-card:hover {
-box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-transform: translateY(-4px);
-}
-.article-card h3 {
+.block h2 {
+font-size: 2rem;
 color: #7a2e63;
-margin: 0 0 12px 0;
-font-size: 1.4rem;
+margin-bottom: 15px;
 }
-.article-card .category {
+.block p {
+font-size: 1rem;
+line-height: 1.6;
+}
+.score-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 30px;
+margin-top: 40px;
+}
+.score-card {
+background: white;
+padding: 30px;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+text-align: center;
+}
+.score-card h3 {
+color: #7a2e63;
+font-size: 1.3rem;
+margin-bottom: 10px;
+}
+.score-range {
+font-size: 2.5rem;
+color: #2e9e6b;
+font-weight: 700;
+margin: 15px 0;
+}
+.score-desc {
+color: #666;
+font-size: 0.95rem;
+line-height: 1.5;
+}
+.edu-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 30px;
+margin-top: 40px;
+}
+.edu-card {
+background: white;
+padding: 30px;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.edu-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+.edu-card h3 {
+color: #7a2e63;
+margin: 8px 0 15px 0;
+}
+.edu-card p {
+color: #555;
+margin: 0;
+}
+.category-tag {
 display: inline-block;
 background: #e8f0ec;
 color: #2e9e6b;
-font-size: 0.8rem;
 padding: 4px 12px;
 border-radius: 20px;
-margin-bottom: 15px;
-text-transform: capitalize;
-}
-.article-card p {
-color: #4a4a4a;
-line-height: 1.6;
-margin: 0 0 15px 0;
-}
-.article-footer {
-display: flex;
-justify-content: space-between;
-align-items: center;
-font-size: 0.9rem;
-color: #999;
-}
-.reading-time {
-color: #d6952b;
+font-size: 0.8rem;
 font-weight: 600;
+text-transform: uppercase;
+margin-bottom: 10px;
 }
-.no-articles {
-text-align: center;
-padding: 60px 20px;
-color: #999;
+.alt-bg {
+background: #faf8f6;
+}
+.wrap {
+max-width: 1000px;
+margin: 0 auto;
+padding: 0 20px;
 }
 </style>
 </head>
@@ -89,30 +127,72 @@ color: #999;
 <header class="site-header">
 <div class="wrap">
 <a href="/" class="brand">
-<img src="/logo-small.svg" alt="CreditPlum logo" width="30" style="vertical-align:baseline; margin-right:6px;">
+<img src="/logo.svg" alt="CreditPlum logo" width="30" style="vertical-align:baseline; margin-right:6px;">
 Credit<span>Plum</span>
 </a>
 <nav class="nav">
 <a href="/">Home</a>
-<a href="/learn.html" class="active">Learn</a>
+<a href="/learn.html">Learn</a>
 </nav>
 </div>
 </header>
-<div class="learn-hero">
-<h1>Learn About Credit</h1>
-<p>Free guides and resources to help you understand and build your credit score.</p>
-</div>
-<div class="articles-section">
+
+<!-- HERO -->
+<section class="hero">
 <div class="wrap">
-<div id="articlesList" class="articles-grid"></div>
-<div id="noArticles" class="no-articles" style="display:none;">
-<p>No articles found. Check back soon!</p>
+<h1>Build Your Credit Score</h1>
+<p>Free tools and guides to help you understand credit and take control of your financial future.</p>
+<a href="#score-estimator" class="cta-button">Check Your Score</a>
+</div>
+</section>
+
+<!-- SCORE ESTIMATOR -->
+<section class="block">
+<div class="wrap">
+<h2>Where Are You?</h2>
+<p style="color:var(--ink-soft);max-width:52ch">Enter your estimated credit score to see products that might work for you, ranked by what helps most.</p>
+<div id="scoreForm" style="margin-top:40px; max-width:500px;">
+<input type="number" id="scoreInput" placeholder="Enter score (300-850)" min="300" max="850" style="width:100%; padding:12px; font-size:1rem; border:2px solid #ddd; border-radius:6px; margin-bottom:15px;">
+<button id="checkBtn" style="width:100%; padding:12px; background:#7a2e63; color:white; border:none; border-radius:6px; font-size:1rem; font-weight:600; cursor:pointer;">Check Products</button>
+</div>
+<div id="results" style="margin-top:40px; display:none;">
+<div class="score-grid" id="productsList"></div>
 </div>
 </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="block alt-bg" id="learn">
+<div class="wrap">
+<h2>Learn how credit really works</h2>
+<p style="color:var(--ink-soft);max-width:52ch">Short, plain-English guides. No jargon, no shame — just what helps.</p>
+<div class="edu-grid">
+<a href="/article.html?slug=how-credit-scores-work" style="display:block; padding:24px; background:#fff; border:1px solid #eee; border-radius:10px; text-decoration:none; color:inherit;">
+<div style="color:#2e9e6b; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Basics</div>
+<h3 style="color:#7a2e63; margin:8px 0;">How Credit Scores Actually Work</h3>
+<p style="color:#555; margin:0;">A plain-English breakdown of what goes into your score.</p>
+</a>
+<a href="/article.html?slug=steps-to-rebuild-credit" style="display:block; padding:24px; background:#fff; border:1px solid #eee; border-radius:10px; text-decoration:none; color:inherit;">
+<div style="color:#2e9e6b; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Rebuilding</div>
+<h3 style="color:#7a2e63; margin:8px 0;">Steps to Rebuild Credit From a Low Score</h3>
+<p style="color:#555; margin:0;">A calm, step-by-step plan to move your score up.</p>
+</a>
+<a href="/article.html?slug=secured-vs-builder-loan" style="display:block; padding:24px; background:#fff; border:1px solid #eee; border-radius:10px; text-decoration:none; color:inherit;">
+<div style="color:#2e9e6b; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Guides</div>
+<h3 style="color:#7a2e63; margin:8px 0;">Secured Card or Credit-Builder Loan: Which First?</h3>
+<p style="color:#555; margin:0;">Two beginner-friendly ways to build credit.</p>
+</a>
 </div>
+<p style="margin-top:20px;">
+<a href="/learn.html" style="color:#7a2e63; font-weight:600;">See all articles →</a>
+</p>
+</div>
+</section>
+
 <footer class="site-footer">
 <p>&copy; 2024 CreditPlum. Educational content only. Not financial advice.</p>
 </footer>
-<script src="/js/learn.js"></script>
+
+<script src="/js/app.js"></script>
 </body>
 </html>
