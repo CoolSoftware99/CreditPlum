@@ -84,7 +84,7 @@ async function loadProducts() {
     $('#resultCount').textContent = `${count} product${count === 1 ? '' : 's'}`;
     grid.innerHTML = '';
     if (!products.length) {
-      grid.innerHTML = '<p style="color:var(--ink-soft)">No products match those filters yet. Try widening them.</p>';
+      grid.innerHTML = '<p style="color:#ffffff">No products match those filters yet. Try widening them.</p>';
       return;
     }
     products.forEach((p) => grid.appendChild(productCard(p)));
