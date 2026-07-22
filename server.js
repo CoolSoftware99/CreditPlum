@@ -64,6 +64,29 @@ app.use('/api/articles', articleRoutes);
 app.use('/api/affiliate', affiliateRoutes);
 app.use('/api/chat', chatbotRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/seed', require('./routes/seed'));
+
+// The chatbot widget and API calls are same-origin; allow inline styles from our CSS file.
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+        fontSrc: ["'self'", 'https://fonts.gstatic.com'],
+        imgSrc: ["'self'", 'data:'],
+        connectSrc: ["'self'"],
+      },
+    },
+    crossOriginEmbedderPolicy: false,
+  })
+);
+
+app.use(compression());
+app.use(cors({ origin: process.env.NODE_ENV === 'production' ? process.env.BASE_URL : true }));
+app.use(express.json({ limit: '100kb' }));
+
 
 // Outbound affiliate redirect lives at the root (/go/:slug).
 app.use('/', affiliateRoutes);
