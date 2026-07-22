@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Article | CreditPlum</title>
+<meta name="description" content="">
 <link rel="stylesheet" href="/css/styles.css">
 <style>
 .article-hero {
@@ -12,15 +13,8 @@ color: #faf8f6;
 padding: 40px 20px;
 text-align: center;
 }
-.article-hero h1 {
-font-size: 2rem;
-margin-bottom: 15px;
-font-weight: 700;
-}
-.article-meta {
-font-size: 0.9rem;
-opacity: 0.9;
-}
+.article-hero h1 { font-size: 2rem; margin-bottom: 15px; font-weight: 700; }
+.article-meta { font-size: 0.9rem; opacity: 0.9; }
 .article-container {
 max-width: 750px;
 margin: 0 auto;
@@ -35,32 +29,12 @@ border-radius: 8px;
 line-height: 1.8;
 color: #333;
 }
-.article-body h2 {
-color: #7a2e63;
-margin-top: 30px;
-margin-bottom: 15px;
-font-size: 1.6rem;
-}
-.article-body h3 {
-color: #2e9e6b;
-margin-top: 20px;
-margin-bottom: 10px;
-font-size: 1.2rem;
-}
-.article-body p {
-margin-bottom: 15px;
-}
-.article-body strong {
-color: #7a2e63;
-font-weight: 600;
-}
-.article-body ol, .article-body ul {
-margin-bottom: 15px;
-margin-left: 20px;
-}
-.article-body li {
-margin-bottom: 8px;
-}
+.article-body h2 { color: #7a2e63; margin-top: 30px; margin-bottom: 15px; font-size: 1.6rem; }
+.article-body h3 { color: #2e9e6b; margin-top: 20px; margin-bottom: 10px; font-size: 1.2rem; }
+.article-body p { margin-bottom: 15px; }
+.article-body strong { color: #7a2e63; font-weight: 600; }
+.article-body ol, .article-body ul { margin-bottom: 15px; margin-left: 20px; }
+.article-body li { margin-bottom: 8px; }
 .back-link {
 display: inline-block;
 margin-bottom: 20px;
@@ -68,21 +42,9 @@ color: #7a2e63;
 text-decoration: none;
 font-weight: 600;
 }
-.back-link:hover {
-text-decoration: underline;
-}
-.loading {
-text-align: center;
-padding: 40px;
-color: #999;
-}
-.error {
-background: #fee;
-color: #c33;
-padding: 20px;
-border-radius: 8px;
-margin-bottom: 20px;
-}
+.back-link:hover { text-decoration: underline; }
+.loading { text-align: center; padding: 40px; color: #999; }
+.error { background: #fee; color: #c33; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
 </style>
 </head>
 <body>
@@ -105,7 +67,7 @@ Credit<span>Plum</span>
 
 <div class="article-container">
 <div class="wrap">
-<a href="/learn.html" class="back-link">Back to articles</a>
+<a href="/learn.html" class="back-link">← Back to articles</a>
 <div id="articleBody"></div>
 </div>
 </div>
@@ -114,46 +76,6 @@ Credit<span>Plum</span>
 <p>&copy; 2024 CreditPlum. Educational content only. Not financial advice.</p>
 </footer>
 
-<script>
-async function loadArticle() {
-try {
-const params = new URLSearchParams(window.location.search);
-const slug = params.get('slug');
-
-if (!slug) {
-document.getElementById('articleContent').innerHTML = '<div class="error">No article specified.</div>';
-return;
-}
-
-const response = await fetch(`/api/articles/${slug}`);
-if (!response.ok) throw new Error('Article not found');
-
-const data = await response.json();
-const article = data.article;
-
-document.title = article.metaTitle || article.title;
-document.querySelector('meta[name="description"]').setAttribute('content', article.metaDescription || article.excerpt);
-
-document.getElementById('articleContent').innerHTML = `
-<h1>${article.title}</h1>
-<div class="article-meta">
-<span>${article.readingMinutes} minute read</span>
-</div>
-`;
-
-let bodyHTML = article.body
-.split('\\n\\n')
-.map(para => `<p>${para}</p>`)
-.join('');
-
-document.getElementById('articleBody').innerHTML = `<div class="article-body">${bodyHTML}</div>`;
-} catch (err) {
-console.error('Error:', err);
-document.getElementById('articleContent').innerHTML = '<div class="error">Article not found.</div>';
-}
-}
-
-loadArticle();
-</script>
+<script src="/js/article.js"></script>
 </body>
 </html>
