@@ -194,3 +194,8 @@ section.block { padding: 48px 0; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
 }
+.no-match-msg {
+  color: #ffffff;
+  font-size: 16px;
+  padding: 20px;
+}
