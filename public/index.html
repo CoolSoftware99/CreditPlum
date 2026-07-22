@@ -13,16 +13,8 @@ color: #faf8f6;
 padding: 80px 20px;
 text-align: center;
 }
-.hero h1 {
-font-size: 3rem;
-margin-bottom: 20px;
-font-weight: 700;
-}
-.hero p {
-font-size: 1.3rem;
-max-width: 600px;
-margin: 0 auto 30px;
-}
+.hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; }
+.hero p { font-size: 1.3rem; max-width: 600px; margin: 0 auto 30px; }
 .cta-button {
 display: inline-block;
 background: #d6952b;
@@ -33,94 +25,77 @@ text-decoration: none;
 font-weight: 600;
 transition: background 0.3s ease;
 }
-.cta-button:hover {
-background: #c17f1a;
-}
-.block {
-padding: 60px 20px;
-}
-.block h2 {
-font-size: 2rem;
-color: #7a2e63;
-margin-bottom: 15px;
-}
-.block p {
-font-size: 1rem;
-line-height: 1.6;
-}
+.cta-button:hover { background: #c17f1a; }
+.block { padding: 60px 20px; }
+.block h2 { font-size: 2rem; color: #7a2e63; margin-bottom: 15px; }
+.block p { font-size: 1rem; line-height: 1.6; }
 .score-grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 gap: 30px;
 margin-top: 40px;
 }
-.score-card {
+.product-card {
 background: white;
-padding: 30px;
+padding: 28px;
 border-radius: 8px;
 box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-text-align: center;
+border-top: 4px solid #7a2e63;
+display: flex;
+flex-direction: column;
 }
-.score-card h3 {
-color: #7a2e63;
-font-size: 1.3rem;
-margin-bottom: 10px;
+.product-card .issuer {
+font-size: 0.8rem;
+color: #999;
+text-transform: uppercase;
+letter-spacing: 0.5px;
 }
-.score-range {
-font-size: 2.5rem;
+.product-card h3 { color: #7a2e63; margin: 6px 0 12px 0; font-size: 1.3rem; }
+.product-meta { font-size: 0.9rem; color: #555; margin-bottom: 12px; }
+.odds-badge {
+display: inline-block;
+padding: 4px 12px;
+border-radius: 20px;
+font-size: 0.85rem;
+font-weight: 600;
+color: white;
+margin-bottom: 14px;
+}
+.product-highlights { list-style: none; padding: 0; margin: 0 0 18px 0; }
+.product-highlights li {
+font-size: 0.9rem;
+color: #444;
+padding: 4px 0 4px 20px;
+position: relative;
+}
+.product-highlights li:before {
+content: "\2713";
 color: #2e9e6b;
+position: absolute;
+left: 0;
 font-weight: 700;
-margin: 15px 0;
 }
-.score-desc {
-color: #666;
-font-size: 0.95rem;
-line-height: 1.5;
+.apply-button {
+margin-top: auto;
+display: block;
+text-align: center;
+background: #2e9e6b;
+color: white;
+padding: 12px;
+border-radius: 6px;
+text-decoration: none;
+font-weight: 600;
+transition: background 0.3s ease;
 }
+.apply-button:hover { background: #248055; }
 .edu-grid {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 gap: 30px;
 margin-top: 40px;
 }
-.edu-card {
-background: white;
-padding: 30px;
-border-radius: 8px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.edu-card:hover {
-transform: translateY(-4px);
-box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-.edu-card h3 {
-color: #7a2e63;
-margin: 8px 0 15px 0;
-}
-.edu-card p {
-color: #555;
-margin: 0;
-}
-.category-tag {
-display: inline-block;
-background: #e8f0ec;
-color: #2e9e6b;
-padding: 4px 12px;
-border-radius: 20px;
-font-size: 0.8rem;
-font-weight: 600;
-text-transform: uppercase;
-margin-bottom: 10px;
-}
-.alt-bg {
-background: #faf8f6;
-}
-.wrap {
-max-width: 1000px;
-margin: 0 auto;
-padding: 0 20px;
-}
+.alt-bg { background: #faf8f6; }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 </style>
 </head>
 <body>
@@ -147,10 +122,10 @@ Credit<span>Plum</span>
 </section>
 
 <!-- SCORE ESTIMATOR -->
-<section class="block">
+<section class="block" id="score-estimator">
 <div class="wrap">
 <h2>Where Are You?</h2>
-<p style="color:var(--ink-soft);max-width:52ch">Enter your estimated credit score to see products that might work for you, ranked by what helps most.</p>
+<p style="color:#555;max-width:52ch">Enter your estimated credit score to see products that might work for you, ranked by approval odds.</p>
 <div id="scoreForm" style="margin-top:40px; max-width:500px;">
 <input type="number" id="scoreInput" placeholder="Enter score (300-850)" min="300" max="850" style="width:100%; padding:12px; font-size:1rem; border:2px solid #ddd; border-radius:6px; margin-bottom:15px;">
 <button id="checkBtn" style="width:100%; padding:12px; background:#7a2e63; color:white; border:none; border-radius:6px; font-size:1rem; font-weight:600; cursor:pointer;">Check Products</button>
@@ -165,7 +140,7 @@ Credit<span>Plum</span>
 <section class="block alt-bg" id="learn">
 <div class="wrap">
 <h2>Learn how credit really works</h2>
-<p style="color:var(--ink-soft);max-width:52ch">Short, plain-English guides. No jargon, no shame — just what helps.</p>
+<p style="color:#555;max-width:52ch">Short, plain-English guides. No jargon, no shame — just what helps.</p>
 <div class="edu-grid">
 <a href="/article.html?slug=how-credit-scores-work" style="display:block; padding:24px; background:#fff; border:1px solid #eee; border-radius:10px; text-decoration:none; color:inherit;">
 <div style="color:#2e9e6b; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Basics</div>
@@ -184,7 +159,7 @@ Credit<span>Plum</span>
 </a>
 </div>
 <p style="margin-top:20px;">
-<a href="/learn.html" style="color:#7a2e63; font-weight:600;">See all articles →</a>
+<a href="/learn.html" style="color:#7a2e63; font-weight:600;">See all articles &rarr;</a>
 </p>
 </div>
 </section>
@@ -193,6 +168,6 @@ Credit<span>Plum</span>
 <p>&copy; 2024 CreditPlum. Educational content only. Not financial advice.</p>
 </footer>
 
-<script src="/js/app.js"></script>
+<script src="/js/home.js"></script>
 </body>
 </html>
