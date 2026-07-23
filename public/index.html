@@ -1,173 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CreditPlum - Build Your Credit Score</title>
-<meta name="description" content="Free credit score tools and guides to help you understand and improve your credit.">
-<link rel="stylesheet" href="/css/styles.css">
-<style>
-.hero {
-background: linear-gradient(135deg, #7a2e63 0%, #2e9e6b 100%);
-color: #faf8f6;
-padding: 80px 20px;
-text-align: center;
-}
-.hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; }
-.hero p { font-size: 1.3rem; max-width: 600px; margin: 0 auto 30px; }
-.cta-button {
-display: inline-block;
-background: #d6952b;
-color: white;
-padding: 14px 36px;
-border-radius: 6px;
-text-decoration: none;
-font-weight: 600;
-transition: background 0.3s ease;
-}
-.cta-button:hover { background: #c17f1a; }
-.block { padding: 60px 20px; }
-.block h2 { font-size: 2rem; color: #7a2e63; margin-bottom: 15px; }
-.block p { font-size: 1rem; line-height: 1.6; }
-.score-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 30px;
-margin-top: 40px;
-}
-.product-card {
-background: white;
-padding: 28px;
-border-radius: 8px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-border-top: 4px solid #7a2e63;
-display: flex;
-flex-direction: column;
-}
-.product-card .issuer {
-font-size: 0.8rem;
-color: #999;
-text-transform: uppercase;
-letter-spacing: 0.5px;
-}
-.product-card h3 { color: #7a2e63; margin: 6px 0 12px 0; font-size: 1.3rem; }
-.product-meta { font-size: 0.9rem; color: #555; margin-bottom: 12px; }
-.odds-badge {
-display: inline-block;
-padding: 4px 12px;
-border-radius: 20px;
-font-size: 0.85rem;
-font-weight: 600;
-color: white;
-margin-bottom: 14px;
-}
-.product-highlights { list-style: none; padding: 0; margin: 0 0 18px 0; }
-.product-highlights li {
-font-size: 0.9rem;
-color: #444;
-padding: 4px 0 4px 20px;
-position: relative;
-}
-.product-highlights li:before {
-content: "\2713";
-color: #2e9e6b;
-position: absolute;
-left: 0;
-font-weight: 700;
-}
-.apply-button {
-margin-top: auto;
-display: block;
-text-align: center;
-background: #2e9e6b;
-color: white;
-padding: 12px;
-border-radius: 6px;
-text-decoration: none;
-font-weight: 600;
-transition: background 0.3s ease;
-}
-.apply-button:hover { background: #248055; }
-.edu-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 30px;
-margin-top: 40px;
-}
-.alt-bg { background: #faf8f6; }
-.wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Bad Credit Cards & How to Rebuild Credit | CreditPlum</title>
+  <meta name="description" content="Compare secured cards, credit-builder loans, and rebuild-friendly products by your credit score. Plain-English guides on how to rebuild credit — no judgment." />
+  <link rel="canonical" href="https://creditplum.com/" />
+  <meta property="og:title" content="Find Bad-Credit Cards & Rebuild Your Score | CreditPlum" />
+  <meta property="og:description" content="See which cards and loans you can realistically get with your score, and learn how to rebuild credit step by step." />
+  <meta property="og:type" content="website" />
+
+  <!-- Structured data helps search engines show rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CreditPlum",
+    "url": "https://creditplum.com/",
+    "description": "Credit education and product comparison for people rebuilding credit."
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <style>
+  .promo-hero {
+    background: linear-gradient(135deg, #7a2e63 0%, #2e9e6b 100%);
+    color: #faf8f6;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .promo-hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 20px; font-weight: 700; color: #faf8f6; }
+  .promo-hero p { font-size: 1.3rem; max-width: 600px; margin: 0 auto 30px; }
+  .cta-button {
+    display: inline-block;
+    background: #d6952b;
+    color: #fff;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  .cta-button:hover { background: #c17f1a; text-decoration: none; }
+  </style>
 </head>
 <body>
-<header class="site-header">
-<div class="wrap">
-<a href="/" class="brand">
-<img src="/logo-small.svg" alt="CreditPlum logo" width="30" style="vertical-align:baseline; margin-right:6px;">
-Credit<span>Plum</span>
-</a>
-<nav class="nav">
-<a href="/">Home</a>
-<a href="/learn.html">Learn</a>
-</nav>
-</div>
-</header>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="/" class="brand">Credit<span>Plum</span></a>
+      <nav class="nav">
+        <a href="#compare">Compare</a>
+        <a href="#learn">Learn</a>
+        <a href="#" id="favLink">Favorites</a>
+        <button class="btn small" id="authBtn">Sign in</button>
+      </nav>
+    </div>
+  </header>
 
-<!-- HERO -->
-<section class="hero">
-<div class="wrap">
-<h1>Build Your Credit Score</h1>
-<p>Free tools and guides to help you understand credit and take control of your financial future.</p>
-<a href="#score-estimator" class="cta-button">Check Your Score</a>
-</div>
-</section>
+  <main>
+    <!-- PROMO HERO (headline + Check Your Score button) -->
+    <section class="promo-hero">
+      <div class="wrap">
+        <h1>Build Your Credit Score</h1>
+        <p>Free tools and guides to help you understand credit and take control of your financial future.</p>
+        <a href="#compare" class="cta-button">Check Your Score</a>
+      </div>
+    </section>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="lede">Set your credit score below. We'll show cards and loans built for where you are — and how likely you are to be approved.</p>
 
-<!-- SCORE ESTIMATOR -->
-<section class="block" id="score-estimator">
-<div class="wrap">
-<h2>Where Are You?</h2>
-<p style="color:#555;max-width:52ch">Enter your estimated credit score to see products that might work for you, ranked by approval odds.</p>
-<div id="scoreForm" style="margin-top:40px; max-width:500px;">
-<input type="number" id="scoreInput" placeholder="Enter score (300-850)" min="300" max="850" style="width:100%; padding:12px; font-size:1rem; border:2px solid #ddd; border-radius:6px; margin-bottom:15px;">
-<button id="checkBtn" style="width:100%; padding:12px; background:#7a2e63; color:white; border:none; border-radius:6px; font-size:1rem; font-weight:600; cursor:pointer;">Check Products</button>
-</div>
-<div id="results" style="margin-top:40px; display:none;">
-<div class="score-grid" id="productsList"></div>
-</div>
-</div>
-</section>
+        <!-- SCORE PICKER -->
+        <div class="score-panel" id="compare">
+          <label for="scoreRange">Your approximate credit score</label>
+          <div class="score-row">
+            <input type="range" id="scoreRange" min="300" max="850" value="560" step="5" />
+            <div>
+              <div class="score-readout" id="scoreReadout">560</div>
+              <div class="band-label" id="bandLabel">Poor</div>
+            </div>
+          </div>
+          <div class="filters">
+            <select id="categoryFilter">
+              <option value="">All product types</option>
+              <option value="secured-card">Secured cards</option>
+              <option value="unsecured-card">Unsecured cards</option>
+              <option value="credit-builder-loan">Credit-builder loans</option>
+              <option value="personal-loan">Personal loans</option>
+            </select>
+            <select id="sortFilter">
+              <option value="odds">Best approval odds</option>
+              <option value="fee">Lowest annual fee</option>
+              <option value="name">Name (A–Z)</option>
+            </select>
+          </div>
+        </div>
+        <p class="ripe-hint" style="margin-top:14px">
+          <span class="dot" style="background:var(--ripe)"></span> Likely
+          <span class="dot" style="background:var(--ripening);margin-left:10px"></span> Maybe
+          <span class="dot" style="background:var(--unripe);margin-left:10px"></span> Long shot
+          &nbsp;— our estimate, not a guarantee.
+        </p>
+      </div>
+    </section>
 
-<!-- EDUCATION -->
-<section class="block alt-bg" id="learn">
-<div class="wrap">
-<h2>Learn how credit really works</h2>
-<p style="color:#555;max-width:52ch">Short, plain-English guides. No jargon, no shame — just what helps.</p>
-<div class="edu-grid">
-<a href="/article.html?slug=how-credit-scores-work" style="display:block; padding:24px; background:#fff; border:1px solid #eee; border-radius:10px; text-decoration:none; color:inherit;">
-<div style="color:#2e9e6b; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Basics</div>
-<h3 style="color:#7a2e63; margin:8px 0;">How Credit Scores Actually Work</h3>
-<p style="color:#555; margin:0;">A plain-English breakdown of what goes into your score.</p>
-</a>
-<a href="/article.html?slug=steps-to-rebuild-credit" style="display:block; padding:24px; background:#fff; border:1px solid #eee; border-radius:10px; text-decoration:none; color:inherit;">
-<div style="color:#2e9e6b; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Rebuilding</div>
-<h3 style="color:#7a2e63; margin:8px 0;">Steps to Rebuild Credit From a Low Score</h3>
-<p style="color:#555; margin:0;">A calm, step-by-step plan to move your score up.</p>
-</a>
-<a href="/article.html?slug=secured-vs-builder-loan" style="display:block; padding:24px; background:#fff; border:1px solid #eee; border-radius:10px; text-decoration:none; color:inherit;">
-<div style="color:#2e9e6b; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Guides</div>
-<h3 style="color:#7a2e63; margin:8px 0;">Secured Card or Credit-Builder Loan: Which First?</h3>
-<p style="color:#555; margin:0;">Two beginner-friendly ways to build credit.</p>
-</a>
-</div>
-<p style="margin-top:20px;">
-<a href="/learn.html" style="color:#7a2e63; font-weight:600;">See all articles &rarr;</a>
-</p>
-</div>
-</section>
+    <!-- RESULTS -->
+    <section class="wrap">
+      <div class="results-head">
+        <h2>Matches for your score</h2>
+        <span class="count" id="resultCount"></span>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
 
-<footer class="site-footer">
-<p>&copy; 2024 CreditPlum. Educational content only. Not financial advice.</p>
-</footer>
+    <!-- EDUCATION -->
+    <section class="block" id="learn">
+      <div class="wrap">
+        <h2>Learn how credit really works</h2>
+        <p style="color:var(--ink-soft);max-width:52ch">Short, plain-English guides. No jargon, no shame — just what helps.</p>
+        <div class="edu-grid" id="eduGrid"></div>
+      </div>
+    </section>
 
-<script src="/js/home.js"></script>
+    <section class="wrap">
+      <p class="disclaimer">
+        CreditPlum is an independent education and comparison site. We may earn a commission when you're
+        approved through our links, at no cost to you — it never changes your rate or our rankings.
+        Approval estimates are editorial guidance, not a promise of approval. We're not a lender,
+        credit-repair company, or financial advisor.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <strong>CreditPlum</strong> — credit education for real people.<br />
+      <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Affiliate disclosure</a> · <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <!-- CHATBOT -->
+  <button class="chat-fab" id="chatFab" aria-label="Open the credit assistant">💬</button>
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Plum credit assistant">
+    <div class="chat-head">
+      <div>Plum<small>Your credit assistant</small></div>
+      <button id="chatClose" aria-label="Close chat">×</button>
+    </div>
+    <div class="chat-log" id="chatLog"></div>
+    <div class="chat-suggests" id="chatSuggests">
+      <button>How do I fix my 520 score?</button>
+      <button>How long does it take to rebuild credit?</button>
+      <button>Which product should I start with?</button>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Ask about credit…" autocomplete="off" />
+      <button id="chatSend" aria-label="Send">↑</button>
+    </div>
+    <div class="chat-disclaimer">Plum gives general education, not personal financial advice.</div>
+  </div>
+
+  <!-- AUTH MODAL -->
+  <div class="modal-backdrop" id="authModal">
+    <div class="modal">
+      <h3 id="authTitle">Welcome back</h3>
+      <div class="err" id="authErr"></div>
+      <input type="email" id="authEmail" placeholder="Email" autocomplete="email" />
+      <input type="password" id="authPassword" placeholder="Password" autocomplete="current-password" />
+      <button class="btn" id="authSubmit">Sign in</button>
+      <div class="switch">
+        <span id="authSwitchText">New here?</span>
+        <a href="#" id="authSwitch">Create an account</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/chatbot.js"></script>
 </body>
 </html>
