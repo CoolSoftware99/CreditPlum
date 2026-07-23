@@ -48,12 +48,19 @@
     transition: background 0.3s ease;
   }
   .cta-button:hover { background: #c17f1a; text-decoration: none; }
+  .matches-band {
+    background: #7a2e63;
+    padding: 48px 20px;
+    margin: 40px 0;
+  }
+  .matches-band .results-head h2 { color: #faf8f6; }
+  .matches-band .results-head .count { color: #f4e9f1; }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a href="/" class="brand">Credit<span>Plum</span></a>
+      <a href="/" class="brand"><img src="/logo.svg" alt="CreditPlum logo" width="28" style="vertical-align:middle; margin-right:8px;" />Credit<span>Plum</span></a>
       <nav class="nav">
         <a href="#compare">Compare</a>
         <a href="/learn.html">Learn</a>
@@ -112,12 +119,14 @@
     </section>
 
     <!-- RESULTS -->
-    <section class="wrap">
-      <div class="results-head">
-        <h2>Matches for your score</h2>
-        <span class="count" id="resultCount"></span>
+    <section class="matches-band">
+      <div class="wrap">
+        <div class="results-head">
+          <h2>Matches for your score</h2>
+          <span class="count" id="resultCount"></span>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
       </div>
-      <div class="product-grid" id="productGrid"></div>
     </section>
 
     <!-- EDUCATION -->
