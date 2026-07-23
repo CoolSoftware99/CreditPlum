@@ -43,6 +43,7 @@ function productCard(p) {
   const isFav = state.favorites.has(p._id);
 
   card.innerHTML = `
+    ${p.cardImage ? `<img class="card-art" src="${p.cardImage}" alt="${p.name} card" />` : ''}
     <span class="tag">${CATEGORY_LABEL[p.category] || p.category}</span>
     <h3>${p.name}</h3>
     <div class="issuer">${p.issuer}</div>
