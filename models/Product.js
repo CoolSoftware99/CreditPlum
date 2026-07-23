@@ -16,6 +16,9 @@ const productSchema = new mongoose.Schema(
     name: { type: String, required: true, trim: true },
     issuer: { type: String, required: true, trim: true },
 
+    // Optional small card artwork (e.g. /images/cards/xyz.png). Keep images small.
+    cardImage: { type: String, default: '' },
+
     category: {
       type: String,
       required: true,
