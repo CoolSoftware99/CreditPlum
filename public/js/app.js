@@ -84,7 +84,7 @@ async function loadProducts() {
     $('#resultCount').textContent = `${count} product${count === 1 ? '' : 's'}`;
     grid.innerHTML = '';
     if (!products.length) {
-      grid.innerHTML = '<p style="text-align:center; color:white; font-size:16px;">No products match those filters yet. Try widening them.</p>';
+      grid.innerHTML = '<p style="color:var(--ink-soft)">No products match those filters yet. Try widening them.</p>';
       return;
     }
     products.forEach((p) => grid.appendChild(productCard(p)));
@@ -137,7 +137,10 @@ async function loadArticles() {
     const { articles } = await API.articles();
     grid.innerHTML = '';
     articles.forEach((a) => {
-      const card = el('article', 'edu-card');
+      const card = el('a', 'edu-card');
+      card.href = `/article.html?slug=${a.slug}`;
+      card.style.textDecoration = 'none';
+      card.style.color = 'inherit';
       card.innerHTML = `
         <div class="cat">${a.category}</div>
         <h3>${a.title}</h3>
